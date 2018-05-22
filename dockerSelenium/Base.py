@@ -42,10 +42,21 @@ class Base(unittest.TestCase):
         This method is set to a 30 seconds timeout.
         Keyword arguments:
         elementId -- ID of the HTML element sought
-        return --
+        return -- webElement
         """
         element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, elementId)))
         return element
+
+    def getInnerHTMLById(self, elementId):
+        """
+        Get the HTML contained in an element.
+
+        Keyword arguments:
+        elementId -- ID of the HTML element sought
+        return -- string HTML
+        """
+        element = self.getElementById(elementId)
+        return element.get_attribute("innerHTML")
 
     def getUrlStatusCode(self, URL):
         """
@@ -56,10 +67,10 @@ class Base(unittest.TestCase):
         return -- int http code
         """
         try:
-            r = urllib.request.urlopen(URL)
-            return r.getcode()
-        finally:
-            r.close()
+            with urllib.request.urlopen(URL) as r:
+                return r.getcode()
+        except urllib.error.HTTPError as e:
+            return e.code
 
     def tearDown(self):
         """

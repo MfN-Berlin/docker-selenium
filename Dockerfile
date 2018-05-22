@@ -63,8 +63,8 @@ RUN curl -fSL $geckodriver_DOWNLOAD_URL -o geckodriver.tar.gz \
 ######################################
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-COPY runtests.sh ./
-RUN chmod +x ./runtests.sh
+COPY start_test_runner.sh ./
+RUN chmod +x ./start_test_runner.sh
 
 ######################################
 #

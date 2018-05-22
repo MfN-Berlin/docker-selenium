@@ -1,5 +1,6 @@
 """A base class for Selenium Tests using Python bindings."""
 import unittest
+import urllib.request
 from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -30,7 +31,7 @@ class Base(unittest.TestCase):
 
         Following method calls (e.g. getElementById) will be applied to the page loaded.
         Keyword arguments:
-        elementId -- URL of the web page to be loaded.
+        URL -- URL of the web page to be loaded.
         """
         self.driver.get(URL)
 
@@ -45,6 +46,20 @@ class Base(unittest.TestCase):
         """
         element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, elementId)))
         return element
+
+    def getUrlStatusCode(self, URL):
+        """
+        Get the HTTP response code for this URL.
+
+        Keyword arguments:
+        URL -- URL of the web page to be loaded.
+        return -- int http code
+        """
+        try:
+            r = urllib.request.urlopen(URL)
+            return r.getcode()
+        finally:
+            r.close()
 
     def tearDown(self):
         """

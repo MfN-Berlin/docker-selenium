@@ -5,7 +5,7 @@ There are several Selenium-ready Docker containers available. This one is optimi
 To **build the image** from the Dockerfile, call ```./build.sh```.
 
 ## Writing tests
-Tests are written in Python. See ```example/ExampleTest.py``` and should expand ```dockerSelenium.Base```
+Tests are written in Python and should expand ```dockerSelenium.Base``` (see ```example/ExampleTest.py```).
 
 Put the tests in the repository of the project that needs to be tested, then start a container and **run the tests**:
 ```

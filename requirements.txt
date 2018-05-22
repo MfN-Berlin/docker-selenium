@@ -1,0 +1,8 @@
+colorama==0.3.9
+coverage==4.5.1
+EasyProcess==0.2.3
+green==2.5.1
+python-termstyle==0.1.10
+PyVirtualDisplay==0.2.1
+selenium==2.53.6
+Unidecode==1.0.22

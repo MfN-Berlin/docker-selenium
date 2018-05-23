@@ -9,7 +9,13 @@
 #
 # The test runner will print test success and coverage info.
 #
-# @author Alvaro Ortiz for Museum fuer Naturkunde, 2017
+# Debug mode:
+#   ./run.sh /home/my-name/workspace/my-project/tests/ debug
+# If you add the word debug as last parameter, then the container will not be stopped,
+# so you can connect to it doing:
+#   docker exec -ti selenium /bin/bash
+#
+# @author Alvaro Ortiz for Museum fuer Naturkunde Berlin, 2017
 # contact: alvaro.OrtizTroncoso@mfn-berlin.de
 
 # Read configuration options
@@ -53,6 +59,11 @@ stop() {
 }
 
 PATH_ON_HOST=$1
+IS_DEBUG=$2
 start
 runtests
-stop
+if [ $IS_DEBUG == "debug" ]; then
+  echo "Debug mode. Container will not be stopped."
+else
+  stop
+fi

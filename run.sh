@@ -59,7 +59,11 @@ stop() {
 }
 
 PATH_ON_HOST=$1
-IS_DEBUG=$2
+if [ $2 ];
+  then IS_DEBUG=$2;
+  else IS_DEBUG="no"
+fi
+
 start
 runtests
 if [ $IS_DEBUG == "debug" ]; then

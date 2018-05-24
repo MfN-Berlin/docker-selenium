@@ -19,8 +19,8 @@ RUN set -x && apk add --no-cache \
 ######################################
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
-# corresponds to alpine 3.4
-ENV JAVA_ALPINE_VERSION 8.111.14-r0
+# corresponds to alpine 3.7
+ENV JAVA_ALPINE_VERSION 8.151.12-r0 
 
 RUN set -x && apk add --no-cache \
   bash nano curl \

@@ -7,6 +7,9 @@
 # Example:
 #   ./run.sh /home/my-name/workspace/my-project/tests/
 #
+# The test runner expects to find a script called load_test_data.sh in the directory where the tests are.
+# This script will be called before the tests are executed.
+#
 # The test runner will print test success and coverage info.
 #
 # Debug mode:
@@ -26,7 +29,7 @@ source config.ini
 # Start the Selenium container.
 #
 #############################################
-start() {    
+start() {
     docker rm $SLNM_CONTAINER
     docker run \
        --restart no \

@@ -12,6 +12,9 @@ from selenium.webdriver.common.by import By
 class Base(unittest.TestCase):
     """A base class for Selenium Tests using Python bindings."""
 
+    MAX_WAIT = 20
+    """Seconds before timeout"""
+
     def setUp(self):
         """
         Set the test up.
@@ -39,12 +42,12 @@ class Base(unittest.TestCase):
         """
         Get a HTML element.
 
-        This method is set to a 30 seconds timeout.
+        This method is set to a MAX_WAIT seconds timeout.
         Keyword arguments:
         elementId -- ID of the HTML element sought
         return -- webElement
         """
-        element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, elementId)))
+        element = WebDriverWait(self.driver, Base.MAX_WAIT).until(EC.presence_of_element_located((By.ID, elementId)))
         return element
 
     def getInnerHTMLById(self, elementId):

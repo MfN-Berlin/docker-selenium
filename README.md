@@ -13,6 +13,18 @@ cd docker-selenium
 ./run.sh full-path-to-the-test-directory
 ```
 
+## Debug mode
+If you need to debug tests, you can run the container in debug mode by calling:
+```
+cd docker-selenium
+./run.sh full-path-to-the-test-directory debug
+```
+The container will not be removed after it the tests have run. You can then connect to it using
+```
+docker exec -ti selenium /bin/bash
+```
+and edit the test runner script, which is in ```/start_test_runner.sh```.
+
 ## Documentation
 * Selenium with Python: http://selenium-python.readthedocs.io/
 * Green (test runner): https://github.com/CleanCut/green

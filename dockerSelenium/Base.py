@@ -50,6 +50,30 @@ class Base(unittest.TestCase):
         element = WebDriverWait(self.driver, Base.MAX_WAIT).until(EC.presence_of_element_located((By.ID, elementId)))
         return element
 
+    def getElementByName(self, elementId):
+        """
+        Get a HTML element.
+
+        This method is set to a MAX_WAIT seconds timeout.
+        Keyword arguments:
+        elementId -- ID of the HTML element sought
+        return -- webElement
+        """
+        element = WebDriverWait(self.driver, Base.MAX_WAIT).until(EC.presence_of_element_located((By.NAME, elementId)))
+        return element
+
+    def getElementByXPath(self, path):
+        """
+        Get a HTML/XML element.
+
+        This method is set to a MAX_WAIT seconds timeout.
+        Keyword arguments:
+        path -- XPATH to the element sought
+        return -- webElement
+        """
+        element = WebDriverWait(self.driver, Base.MAX_WAIT).until(EC.presence_of_element_located((By.XPATH, path)))
+        return element
+
     def getInnerHTMLById(self, elementId):
         """
         Get the HTML contained in an element.

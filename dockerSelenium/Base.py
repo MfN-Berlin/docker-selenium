@@ -3,7 +3,6 @@ import unittest
 import urllib.request
 from pyvirtualdisplay import Display
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -12,7 +11,7 @@ from selenium.webdriver.common.by import By
 class Base(unittest.TestCase):
     """A base class for Selenium Tests using Python bindings."""
 
-    MAX_WAIT = 20
+    MAX_WAIT = 25
     """Seconds before timeout"""
 
     def setUp(self):

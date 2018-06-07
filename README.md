@@ -7,17 +7,19 @@ To **build the image** from the Dockerfile, call ```./build.sh```.
 ## Writing tests
 Tests are written in Python and should expand ```dockerSelenium.Base``` (see ```example/ExampleTest.py```).
 
-Put the tests in the repository of the project that needs to be tested, then start a container and **run the tests**:
+Put the tests in the project that needs to be tested. When you start the container, make sure the directory containing the tests is mounted as a volume called "test".
+
+Then **run the tests**:
 ```
 cd docker-selenium
-./run.sh full-path-to-the-test-directory
+./run.sh docker-container-to-test
 ```
 
 ## Debug mode
 If you need to debug tests, you can run the container in debug mode by calling:
 ```
 cd docker-selenium
-./run.sh full-path-to-the-test-directory debug
+./run.sh docker-container-to-test debug
 ```
 The container will not be removed after it the tests have run. You can then connect to it using
 ```

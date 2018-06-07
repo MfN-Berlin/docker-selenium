@@ -34,7 +34,7 @@ start() {
     docker run \
        --restart no \
        --name $SLNM_CONTAINER \
-       -v $PATH_ON_HOST:/usr/src/app/test \
+       --volumes-from ikon-smw \
        -d \
        $SLNM_CONTAINER
     echo "You can now run tests."

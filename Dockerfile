@@ -75,6 +75,13 @@ RUN chmod +x ./start_test_runner.sh
 RUN mkdir ./dockerSelenium
 COPY dockerSelenium ./dockerSelenium
 
+######################################
+#
+# Link test directory from /usr/src/app/test
+#
+######################################
+RUN ln -s /usr/src/app/test /test
+
 #######################
 #
 # Start

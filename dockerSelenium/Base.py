@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 class Base(unittest.TestCase):
     """A base class for Selenium Tests using Python bindings."""
 
-    MAX_WAIT = 25
+    MAX_WAIT = 30
     """Seconds before timeout"""
 
     def setUp(self):

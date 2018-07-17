@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 class Base(unittest.TestCase):
     """A base class for Selenium Tests using Python bindings."""
 
-    MAX_WAIT = 30
+    MAX_WAIT = 60
     """Seconds before timeout"""
 
     def setUp(self):
@@ -47,6 +47,7 @@ class Base(unittest.TestCase):
         return -- webElement
         """
         element = WebDriverWait(self.driver, Base.MAX_WAIT).until(EC.presence_of_element_located((By.ID, elementId)))
+        
         return element
 
     def getElementByName(self, elementId):

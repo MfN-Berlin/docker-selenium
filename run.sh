@@ -22,7 +22,7 @@
 # contact: alvaro.OrtizTroncoso@mfn-berlin.de
 
 # Read configuration options
-source config.ini
+source ./config.ini
 
 #############################################
 #

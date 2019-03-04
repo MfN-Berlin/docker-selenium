@@ -30,10 +30,10 @@ source ./config.ini
 #
 #############################################
 start() {
-    docker rm $SLNM_CONTAINER
+    docker rm selenium
     docker run \
        --restart no \
-       --name $SLNM_CONTAINER \
+       --name selenium \
        --volumes-from ikon-smw \
        -d \
        $SLNM_CONTAINER
@@ -47,7 +47,7 @@ start() {
 #
 #############################################
 runtests() {
-    docker exec -ti $SLNM_CONTAINER /bin/bash ./start_test_runner.sh
+    docker exec -ti selenium /bin/bash ./start_test_runner.sh
 }
 
 #############################################
@@ -57,8 +57,8 @@ runtests() {
 #
 #############################################
 stop() {
-    docker stop $SLNM_CONTAINER
-    docker rm $SLNM_CONTAINER
+    docker stop selenium
+    docker rm selenium
 }
 
 PATH_ON_HOST=$1

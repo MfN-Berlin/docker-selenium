@@ -4,5 +4,5 @@ EasyProcess==0.2.3
 green==2.5.1
 python-termstyle==0.1.10
 PyVirtualDisplay==0.2.1
-selenium==2.53.6
+selenium==3.141.0
 Unidecode==1.0.22

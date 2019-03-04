@@ -1,13 +1,18 @@
 Builds a Docker Container for testing web applications with Selenium.
 
-There are several Selenium-ready Docker containers available. This one is optimized for small image size (based on Alpine Linux), comes with a headless Firefox and Python bindings. 
+There are several Selenium-ready Docker containers available. This one is optimized for small image size (based on Alpine Linux), comes with a headless Firefox and Python bindings.
 
-To **build the image** from the Dockerfile, call ```./build.sh```.
 
 ## Writing tests
 Tests are written in Python and should expand ```dockerSelenium.Base``` (see ```example/ExampleTest.py```).
 
 Put the tests in the project that needs to be tested. When you start the container, make sure the directory containing the tests is mounted as a volume called "test".
+
+## Running the tests
+Pull the ready image from Docker Hub:
+```
+docker pull aot29/selenium
+```
 
 Then **run the tests**:
 ```
@@ -26,6 +31,10 @@ The container will not be removed after it the tests have run. You can then conn
 docker exec -ti selenium /bin/bash
 ```
 and edit the test runner script, which is in ```/start_test_runner.sh```.
+
+## Building the image from scratch
+
+To **build the image** from the Dockerfile, call ```./build.sh```.
 
 ## Documentation
 * Selenium with Python: http://selenium-python.readthedocs.io/
